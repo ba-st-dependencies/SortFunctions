@@ -1,6 +1,6 @@
 Extension { #name : #Boolean }
 
-{ #category : #'*SortFunctions-Core' }
+{ #category : #'*SortFunctions-Extensions' }
 Boolean >> threeWayCompareTo: anotherObject [
 	^ self asBit threeWayCompareTo: anotherObject asBit
 ]

@@ -14,6 +14,8 @@ Class {
 
 { #category : #'class initialization' }
 DefaultSortFunction class >> initialize [
+
+	<ignoreForCoverage>
 	Default := self new
 ]
 

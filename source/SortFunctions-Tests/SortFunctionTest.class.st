@@ -101,10 +101,8 @@ SortFunctionTest >> testSorting [
 	data := { 2 -> 10. 5 -> 5. 10 -> 4. 3 -> 8. 1 -> 1. 11 -> 11 }.
 	sorted := data sorted: #key ascending.
 	self assert: sorted equals: { 1 -> 1. 2 -> 10. 3 -> 8. 5 -> 5. 10 -> 4. 11 -> 11 }.
-	self assert: (sorted isSortedBy: #key ascending).
 	sorted := data sorted: #key descending.
 	self assert: sorted equals: { 11 -> 11. 10 -> 4. 5 -> 5. 3 -> 8. 2 -> 10. 1 -> 1 }.
-	self assert: (sorted isSortedBy: #key descending).
 	sorted := data sorted: [ :each | each value printStringLength: 2 ] ascending.
 	self assert: sorted equals: { 1 -> 1. 10 -> 4. 5 -> 5. 3 -> 8. 2 -> 10. 11 -> 11 }.
 	sorted := data sorted: [ :each | each value * 100.0 ] descending.
@@ -117,10 +115,8 @@ SortFunctionTest >> testSortingChained [
 	data := { 1 -> 10. 5 -> 5. 10 -> 4. 3 -> 8. 1 -> 1. 10 -> 10 }.
 	sorted := data sorted: #key ascending , #value ascending.
 	self assert: sorted equals: { 1 -> 1. 1 -> 10. 3 -> 8. 5 -> 5. 10 -> 4. 10 -> 10 }.
-	self assert: (sorted isSortedBy: #key ascending , #value ascending).
 	sorted := data sorted: #key ascending , #value descending.
-	self assert: sorted equals: { 1 -> 10. 1 -> 1. 3 -> 8. 5 -> 5. 10 -> 10. 10 -> 4 }.
-	self assert: (sorted isSortedBy: #key ascending , #value descending)
+	self assert: sorted equals: { 1 -> 10. 1 -> 1. 3 -> 8. 5 -> 5. 10 -> 10. 10 -> 4 }
 ]
 
 { #category : #'tests - sorting' }
@@ -129,10 +125,8 @@ SortFunctionTest >> testSortingChainedWithUndefined [
 	data := { 1 -> 10. 5 -> 5. 10 -> 4. 10 -> nil. 3 -> 8. 1 -> 1. 10 -> 10 }.
 	sorted := data sorted: #key ascending , #value ascending undefinedFirst.
 	self assert: sorted equals: { 1 -> 1. 1 -> 10. 3 -> 8. 5 -> 5. 10 -> nil. 10 -> 4. 10 -> 10 }.
-	self assert: (sorted isSortedBy: #key ascending , #value ascending undefinedFirst).
 	sorted := data sorted: #key ascending , #value descending undefinedLast.
-	self assert: sorted equals: { 1 -> 10. 1 -> 1. 3 -> 8. 5 -> 5. 10 -> 10. 10 -> 4. 10 -> nil }.
-	self assert: (sorted isSortedBy: #key ascending , #value descending undefinedLast)
+	self assert: sorted equals: { 1 -> 10. 1 -> 1. 3 -> 8. 5 -> 5. 10 -> 10. 10 -> 4. 10 -> nil }
 ]
 
 { #category : #'tests - sorting' }

@@ -1,0 +1,9 @@
+RwLoadSpecificationV2 {
+  #specName: 'SortFunctions-CI',
+  #projectName : 'SortFunctions',
+  #diskUrl : 'SortFunctions',
+  #projectSpecFile : 'rowan/project.ston',
+  #componentNames : [
+    'Deployment'
+  ]
+}

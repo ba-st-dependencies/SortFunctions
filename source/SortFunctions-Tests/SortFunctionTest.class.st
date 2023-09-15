@@ -103,7 +103,7 @@ SortFunctionTest >> testSorting [
 	self assert: sorted equals: { 1 -> 1. 2 -> 10. 3 -> 8. 5 -> 5. 10 -> 4. 11 -> 11 }.
 	sorted := data sorted: #key descending.
 	self assert: sorted equals: { 11 -> 11. 10 -> 4. 5 -> 5. 3 -> 8. 2 -> 10. 1 -> 1 }.
-	sorted := data sorted: [ :each | each value printStringLength: 2 ] ascending.
+	sorted := data sorted: [ :each | each value ] ascending.
 	self assert: sorted equals: { 1 -> 1. 10 -> 4. 5 -> 5. 3 -> 8. 2 -> 10. 11 -> 11 }.
 	sorted := data sorted: [ :each | each value * 100.0 ] descending.
 	self assert: sorted equals: { 11 -> 11. 2 -> 10. 3 -> 8. 5 -> 5. 10 -> 4. 1 -> 1 }
